@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación - Insylo</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#9bccf7",
+                        "surface-container-highest": "#dfe3e4",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e5e9ea",
+                        "on-tertiary-container": "#80dde8",
+                        "on-tertiary-fixed": "#001f23",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-container": "#275c82",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dfe3e4",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f6fafb",
+                        "background": "#f6fafb",
+                        "on-secondary-fixed-variant": "#3b417d",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c7cf",
+                        "on-secondary-fixed": "#0d1350",
+                        "inverse-on-surface": "#edf1f2",
+                        "surface-container": "#eaeef0",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#41474e",
+                        "inverse-primary": "#9bccf7",
+                        "tertiary-fixed": "#94f1fc",
+                        "surface-container-low": "#f0f4f5",
+                        "tertiary-container": "#00626a",
+                        "inverse-surface": "#2c3132",
+                        "secondary-container": "#b3b9fe",
+                        "secondary": "#535997",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#181c1d",
+                        "tertiary": "#00484f",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#2f6389",
+                        "outline": "#72787f",
+                        "primary-fixed": "#cce5ff",
+                        "on-secondary-container": "#414884",
+                        "on-background": "#181c1d",
+                        "primary": "#014469",
+                        "surface": "#f6fafb",
+                        "surface-dim": "#d6dbdc",
+                        "on-primary-fixed-variant": "#0e4b70",
+                        "on-primary-container": "#a3d4ff",
+                        "tertiary-fixed-dim": "#77d5df",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-tertiary-fixed-variant": "#004f55",
+                        "on-primary-fixed": "#001e31"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f6fafb;
+            min-height: 100dvh;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+    <header class="bg-surface fixed top-0 w-full z-50 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">auto_stories</span>
+                <h1 class="text-lg font-bold text-primary tracking-tight">Guía de instalación</h1>
+            </div>
+            <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/AX%20-%20Asimetrix/AX_Logo%20completo.png?width=174&height=56&name=AX_Logo%20completo.png" alt="Asimetrix" class="h-8">
+        </div>
+    </header>
+
+    <main class="pt-24 pb-24 md:pb-12 max-w-7xl mx-auto px-6">
+        <a href="https://asimetrix-hub.vercel.app/#" class="inline-flex items-center gap-2 text-primary hover:text-primary-container transition-colors mb-6">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span class="font-medium">Volver al Hub</span>
+        </a>
+
+        <section class="mb-8">
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold tracking-widest uppercase rounded-lg shadow-lg shadow-primary/30 mb-4">
+                <span class="material-symbols-outlined text-lg">build</span>
+                Instalación
+            </span>
+            <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                Proceso de instalación paso a paso del sistema Insylo.
+            </p>
+        </section>
+
+        <!-- Avisos importantes -->
+        <section class="mb-12 bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+            <div class="bg-tertiary-container/20 border border-tertiary-container/30 p-4 rounded-lg mb-6">
+                <div class="flex items-center gap-2 text-tertiary font-bold text-sm mb-2">
+                    <span class="material-symbols-outlined text-sm">warning</span>
+                    Antes de subir y bajar del silo
+                </div>
+                <p class="text-xs text-on-surface-variant">
+                    Toma desde el suelo todas las medidas que puedas, así evitas tener que volver a bajar una vez estés arriba. También asegúrate de tomar desde arriba las medidas necesarias para no tener que subir de nuevo.
+                </p>
+            </div>
+            <div class="bg-primary-container/20 border border-primary-container/30 p-4 rounded-lg">
+                <div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+                    <span class="material-symbols-outlined text-sm">info</span>
+                    Nota importante
+                </div>
+                <p class="text-xs text-on-surface-variant">
+                    Las fotos son muy importantes para la correcta configuración del dispositivo después de la instalación.
+                </p>
+            </div>
+        </section>
+
+        <!-- Pasos de instalación -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Paso 1 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">01</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">qr_code</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Ubicar el sticker QR</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Ubicar el sticker de código QR de Insylo en la pata del silo (accesible y protegida contra daños).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">02</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">photo_camera</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Toma las fotos del silo</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <ul class="text-sm space-y-3 font-medium text-on-surface-variant">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            La etiqueta o etiquetas del silo con la información sobre sus especificaciones
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            El código QR del dispositivo Insylo junto con la etiqueta del silo
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">03</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">edit</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Marca la posición</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Accede a la parte superior del silo. <span class="text-on-surface">En una zona por donde no se alimente el silo</span>, haz una marca aproximadamente a 40 cm desde el borde inferior del cono superior.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 4 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">04</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">center_focus_strong</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Alinear el adaptador</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Asegúrate de alinear la parte superior del adaptador del silo con el centro del silo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 5 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">05</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">crop_square</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Marca el rectángulo</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Marca el rectángulo interior del adaptador del silo.
+                    </p>
+                </div>
+                <div class="bg-tertiary-container/20 border border-tertiary-container/30 p-4 rounded-lg">
+                    <div class="flex items-center gap-2 text-tertiary font-bold text-sm">
+                        <span class="material-symbols-outlined text-sm">warning</span>
+                        ADVERTENCIA: No marques los orificios de fijación en este paso.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 6 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">06</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">content_cut</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Corta el rectángulo</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Corta el rectángulo marcado en el paso anterior sobre el silo. <span class="text-on-surface">Es importante tener cuidado al cortar el silo, no dejar caer dentro la pieza cortada.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 7 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">07</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">handyman</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Coloca el adaptador</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Usando nuevamente el adaptador del silo, colócalo sobre el orificio asegurándote de que no haya superficie del silo sobresaliendo en la parte inferior interna del adaptador. <span class="text-on-surface">Es muy importante que acomode la base tal como se muestra en la imagen.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 8 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">08</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">construction</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Perfora los orificios</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Marca y perfora los orificios de fijación.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 9 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">09</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">build</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Instala el adaptador</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Instala el adaptador de fijación con los tornillos M6x30 y las tuercas autoblocantes M6供货adas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 10 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">10</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">settings</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Ajusta los tornillos</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        No aprietes en exceso los tornillos del adaptador del silo (la junta debe comprimirse aproximadamente un 50%).
+                    </p>
+                </div>
+                <div class="bg-tertiary-container/20 border border-tertiary-container/30 p-4 rounded-lg">
+                    <div class="flex items-center gap-2 text-tertiary font-bold text-sm">
+                        <span class="material-symbols-outlined text-sm">warning</span>
+                        Si se deforma la base por la presión en los tornillos, puede causar filtraciones de agua.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 11 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">11</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">format_color_fill</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Sella el perímetro</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Sella el perímetro del adaptador del silo con silicona (apta para uso en exteriores).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 12 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">12</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">straighten</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Mide el ángulo del silo</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Mide el ángulo del cono superior del silo. Puedes usar la herramienta que mejor se te acomode: inclinómetro, angulómetro o dispositivo para medir ángulos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 13 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">13</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">unfold_more</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Afloja la tuerca</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Afloja la tuerca para ajustar el ángulo de la cámara.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 14 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">14</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">tune</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Ajusta el ángulo de la cámara</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <ul class="text-sm space-y-3 font-medium text-on-surface-variant mb-3">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Cada marca de la cámara equivale a 10º (1 = 10º)
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Usa la medida del ángulo del silo y réstale 10º
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Ajusta el dispositivo al ángulo resultante
+                        </li>
+                    </ul>
+                    <div class="bg-primary-container/20 border border-primary-container/30 p-3 rounded-lg">
+                        <p class="text-sm text-on-surface">
+                            <span class="font-bold">Ejemplo:</span> Si el ángulo del silo es de 50º, entonces 50º - 10º = 40º = posición 4. El dispositivo se debe graduar a la 4ta posición.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 15 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">15</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">lock</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Fija el ángulo</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Aprieta la tuerca para fijar permanentemente el ángulo de la cámara.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 16 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">16</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">power</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Enciende el dispositivo</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Enciende el dispositivo Insylo utilizando el interruptor deslizante de encendido/apagado ubicado en la parte inferior del dispositivo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 17 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">17</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">upload</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Coloca el dispositivo</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Coloca el dispositivo Insylo sobre el adaptador del silo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 18 -->
+            <div class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">18</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">check_circle</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Finaliza la instalación</h3>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <p class="text-sm font-medium text-on-surface-variant">
+                        Aprieta los tornillos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="text-center mb-12">
+            <a href="configuracion.html" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-container transition shadow-lg shadow-primary/30">
+                Vamos a configurar Insylo
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+
+        <!-- Contacto -->
+        <section class="bg-surface-container-low rounded-xl p-8 md:p-12">
+            <h4 class="text-primary text-2xl font-bold mb-6 text-center">¿Necesitas ayuda?</h4>
+            <p class="text-on-surface-variant text-center mb-8">Contacta a nuestro equipo de soporte</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="bg-surface-container-lowest p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-3xl text-white">person</span>
+                    </div>
+                    <h5 class="font-bold text-lg text-on-surface mb-2">Damián García</h5>
+                    <p class="text-sm text-on-surface-variant mb-1">damian.garcia@asimetrix.co</p>
+                    <p class="text-sm text-primary font-semibold">+57 (304) 666 0685</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-3xl text-white">person</span>
+                    </div>
+                    <h5 class="font-bold text-lg text-on-surface mb-2">Manuela Chavarría</h5>
+                    <p class="text-sm text-on-surface-variant mb-1">manuela.chavarria@asimetrix.co</p>
+                    <p class="text-sm text-primary font-semibold">+57 (318) 220 2707</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-surface-container-low py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="material-symbols-outlined text-primary">sensors</span>
+                <span class="font-bold text-primary">Insylo</span>
+            </div>
+            <p class="text-on-surface-variant text-sm">© 2026 Iluma Alliance</p>
+        </div>
+    </footer>
+</body>
+</html>
