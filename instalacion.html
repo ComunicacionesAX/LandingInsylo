@@ -455,5 +455,18 @@
             <p class="text-on-surface-variant text-sm">© 2026 Iluma Alliance</p>
         </div>
     </footer>
+
+    <script>
+        const lang = localStorage.getItem('asimetrix-lang') || 'es';
+        if (lang === 'en') {
+            document.querySelectorAll('[data-es]').forEach(el => {
+                const en = el.getAttribute('data-en');
+                if (en) el.textContent = en;
+            });
+        }
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'asimetrix-lang') location.reload();
+        });
+    </script>
 </body>
 </html>
