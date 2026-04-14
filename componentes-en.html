@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components - Insylo</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#9bccf7",
+                        "surface-container-highest": "#dfe3e4",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e5e9ea",
+                        "on-tertiary-container": "#80dde8",
+                        "on-tertiary-fixed": "#001f23",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-container": "#275c82",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dfe3e4",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f6fafb",
+                        "background": "#f6fafb",
+                        "on-secondary-fixed-variant": "#3b417d",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c7cf",
+                        "on-secondary-fixed": "#0d1350",
+                        "inverse-on-surface": "#edf1f2",
+                        "surface-container": "#eaeef0",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#41474e",
+                        "inverse-primary": "#9bccf7",
+                        "tertiary-fixed": "#94f1fc",
+                        "surface-container-low": "#f0f4f5",
+                        "tertiary-container": "#00626a",
+                        "inverse-surface": "#2c3132",
+                        "secondary-container": "#b3b9fe",
+                        "secondary": "#535997",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#181c1d",
+                        "tertiary": "#00484f",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#2f6389",
+                        "outline": "#72787f",
+                        "primary-fixed": "#cce5ff",
+                        "on-secondary-container": "#414884",
+                        "on-background": "#181c1d",
+                        "primary": "#014469",
+                        "surface": "#f6fafb",
+                        "surface-dim": "#d6dbdc",
+                        "on-primary-fixed-variant": "#0e4b70",
+                        "on-primary-container": "#a3d4ff",
+                        "tertiary-fixed-dim": "#77d5df",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-tertiary-fixed-variant": "#004f55",
+                        "on-primary-fixed": "#001e31"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f6fafb;
+            min-height: 100dvh;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+    <header class="bg-surface fixed top-0 w-full z-50 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">auto_stories</span>
+                <h1 class="text-lg font-bold text-primary tracking-tight">Installation Guide</h1>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="componentes.html" class="px-3 py-1 text-sm font-medium rounded hover:bg-surface-container-high transition lang-switch">ES</a>
+                <a href="componentes-en.html" class="px-3 py-1 text-sm font-medium rounded bg-primary text-white hover:bg-surface-container-high transition lang-switch">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-24 md:pb-12 max-w-7xl mx-auto px-6">
+        <a href="https://asimetrix-hub.vercel.app/#" class="inline-flex items-center gap-2 text-primary hover:text-primary-container transition-colors mb-6">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span class="font-medium">Back to Hub</span>
+        </a>
+
+        <section class="mb-8">
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold tracking-widest uppercase rounded-lg shadow-lg shadow-primary/30 mb-4">
+                <span class="material-symbols-outlined text-lg">inventory_2</span>
+                Components
+            </span>
+            <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                List of components and tools required for Insylo installation.
+            </p>
+        </section>
+
+        <!-- Components -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-on-surface mb-6">Included Components</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20 text-center">
+                    <div class="bg-surface-container-high rounded-lg h-40 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/IMG_6179.jpeg?width=2055&height=1197&name=IMG_6179.jpeg" alt="M6 Nut" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">M6 Safety Nut</p>
+                    <p class="text-xs text-on-surface-variant">x 4 units</p>
+                </div>
+                <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20 text-center">
+                    <div class="bg-surface-container-high rounded-lg h-40 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/IMG_6181.jpeg?width=2055&height=1197&name=IMG_6181.jpeg" alt="M6x15 Screw" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">Hex Head Screw</p>
+                    <p class="text-xs text-on-surface-variant">M6x15 - x 3 units</p>
+                </div>
+                <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20 text-center">
+                    <div class="bg-surface-container-high rounded-lg h-40 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/IMG_6180.jpeg?width=2055&height=1197&name=IMG_6180.jpeg" alt="M6x30 Screw" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">Hex Screw</p>
+                    <p class="text-xs text-on-surface-variant">M6x30 - x 4 units</p>
+                </div>
+                <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20 text-center">
+                    <div class="bg-surface-container-high rounded-lg h-40 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/IMG_6178.jpeg?width=2055&height=1197&name=IMG_6178.jpeg" alt="M6 Washer" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">M6 Washer</p>
+                    <p class="text-xs text-on-surface-variant">x 3 units</p>
+                </div>
+                <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20 text-center">
+                    <div class="bg-surface-container-high rounded-lg h-40 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/IMG_6177.jpeg?width=2055&height=1197&name=IMG_6177.jpeg" alt="Device Base" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">Device Base</p>
+                    <p class="text-xs text-on-surface-variant">x 1 unit</p>
+                </div>
+                <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20 text-center">
+                    <div class="bg-surface-container-high rounded-lg h-40 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/AX%20-%20Asimetrix/AX%20-%20Insylo%20dibujo%20laterial%20formatohprizontal.png?width=1920&height=1080&name=AX%20-%20Insylo%20dibujo%20laterial%20formatohprizontal.png" alt="Insylo Device" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">Insylo Device</p>
+                    <p class="text-xs text-on-surface-variant">x 1 unit</p>
+                </div>
+                <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20 text-center">
+                    <div class="bg-surface-container-high rounded-lg h-40 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="https://campaigns.asimetrix.co/hs-fs/hubfs/IMG_6183.jpeg?width=2055&height=1197&name=IMG_6183.jpeg" alt="QR Sticker" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">QR Code Sticker</p>
+                    <p class="text-xs text-on-surface-variant">x 1 unit</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preparation -->
+        <section class="mb-12 bg-tertiary-container/10 border border-tertiary-container/30 rounded-xl p-8">
+            <h2 class="text-xl font-bold text-on-surface mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-tertiary">checklist</span>
+                Preparation
+            </h2>
+            <p class="text-on-surface-variant mb-6">Read the viability requirements and risks that must be met before starting the installation work.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-surface-container-low p-4 rounded-lg">
+                    <h3 class="font-bold text-on-surface mb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">accessibility</span>
+                        Accessibility
+                    </h3>
+                    <p class="text-sm text-on-surface-variant">The area around the silo must be accessible to place the necessary equipment to access the top of the silo. Also, the location where the sensor will be installed should not be where the silo is loaded to avoid damage to the sensor.</p>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg">
+                    <h3 class="font-bold text-on-surface mb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">warning</span>
+                        High Voltage Lines
+                    </h3>
+                    <p class="text-sm text-on-surface-variant">The top of the silo must be free of high voltage lines or other structures that may affect the installation.</p>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg">
+                    <h3 class="font-bold text-on-surface mb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">security</span>
+                        PPE and Work at Heights
+                    </h3>
+                    <p class="text-sm text-on-surface-variant">Personal protection equipment and equipment for work at heights should be used.</p>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg">
+                    <h3 class="font-bold text-on-surface mb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">wb_sunny</span>
+                        Sunlight
+                    </h3>
+                    <p class="text-sm text-on-surface-variant">Confirm that the device can be installed in a location oriented towards the sun.</p>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg md:col-span-2">
+                    <h3 class="font-bold text-on-surface mb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">explore</span>
+                        Seasonal Zones
+                    </h3>
+                    <p class="text-sm text-on-surface-variant">Orientation may vary depending on the region of the world. The device orientation should be towards the south, this is essential to ensure proper operation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-on-surface mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">build</span>
+                Installation Tools
+            </h2>
+            <p class="text-on-surface-variant mb-6">These are the tools you must have on hand to start the installation process.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-surface-container-low rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-on-surface mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">security</span>
+                        Safety Equipment (PPE)
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Safety helmets
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Safety harnesses
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Lifelines
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Positioning belts
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Safety footwear
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Safety gloves
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Anchor systems
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Safety ladders
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-surface-container-low rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-on-surface mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">construction</span>
+                        Tools
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Angle grinder
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Drill
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Polisher
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Tape measure
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            6mm drill bit for metal
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            4mm drill bit for metal
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            2 wrenches #10
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Square
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Flat and Phillips screwdriver
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Inclinometer or protractor
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Silicone caulk gun
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Exterior silicone
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specs -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-on-surface mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">info</span>
+                Technical Specifications
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-primary-container">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">3d_rotation</span>
+                    <h3 class="font-bold text-on-surface mb-1">Measurement Technology</h3>
+                    <p class="text-sm text-on-surface-variant">3D camera capable of capturing more than 15,000 points</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-primary-container">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">speed</span>
+                    <h3 class="font-bold text-on-surface mb-1">Accuracy</h3>
+                    <p class="text-sm text-on-surface-variant">Up to 97%, similar to load cell accuracy</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-primary-container">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">data_object</span>
+                    <h3 class="font-bold text-on-surface mb-1">Data Captured</h3>
+                    <ul class="text-sm text-on-surface-variant space-y-1 mt-2">
+                        <li>• Volume/weight</li>
+                        <li>• Temperature</li>
+                        <li>• Humidity</li>
+                        <li>• Heat map</li>
+                        <li>• Failures and hygiene</li>
+                    </ul>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-primary-container">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">today</span>
+                    <h3 class="font-bold text-on-surface mb-1">Readings per Day</h3>
+                    <p class="text-sm text-on-surface-variant">Maximum 24 (standard), minimum 10 (winter in high latitudes)</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-primary-container">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">cloud</span>
+                    <h3 class="font-bold text-on-surface mb-1">Data Access</h3>
+                    <p class="text-sm text-on-surface-variant">Online from computer or phone, email alerts</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-primary-container">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">schedule</span>
+                    <h3 class="font-bold text-on-surface mb-1">Installation Time</h3>
+                    <p class="text-sm text-on-surface-variant">15 minutes</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-primary-container">
+                    <span class="material-symbols-outlined text-primary text-2xl mb-2">height</span>
+                    <h3 class="font-bold text-on-surface mb-1">Max Silo Height</h3>
+                    <p class="text-sm text-on-surface-variant">12 meters</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-t-4 border-tertiary-container">
+                    <span class="material-symbols-outlined text-tertiary text-2xl mb-2">power_off</span>
+                    <h3 class="font-bold text-on-surface mb-1">Requires Cables?</h3>
+                    <p class="text-sm text-on-surface-variant">No for outdoors (solar power). Only needed for indoor silos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="text-center mb-12">
+            <a href="instalacion-en.html" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-container transition shadow-lg shadow-primary/30">
+                Let's install Insylo
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+
+        <!-- Contact -->
+        <section class="bg-surface-container-low rounded-xl p-8 md:p-12">
+            <h4 class="text-primary text-2xl font-bold mb-6 text-center">Need help?</h4>
+            <p class="text-on-surface-variant text-center mb-8">Contact our support team</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="bg-surface-container-lowest p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-3xl text-white">person</span>
+                    </div>
+                    <h5 class="font-bold text-lg text-on-surface mb-2">Damián García</h5>
+                    <p class="text-sm text-on-surface-variant mb-1">damian.garcia@asimetrix.co</p>
+                    <p class="text-sm text-primary font-semibold">+57 (304) 666 0685</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-3xl text-white">person</span>
+                    </div>
+                    <h5 class="font-bold text-lg text-on-surface mb-2">Manuela Chavarría</h5>
+                    <p class="text-sm text-on-surface-variant mb-1">manuela.chavarria@asimetrix.co</p>
+                    <p class="text-sm text-primary font-semibold">+57 (318) 220 2707</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-surface-container-low py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="material-symbols-outlined text-primary">sensors</span>
+                <span class="font-bold text-primary">Insylo</span>
+            </div>
+            <p class="text-on-surface-variant text-sm">© 2026 Iluma Alliance</p>
+        </div>
+    </footer>
+</body>
+</html>
