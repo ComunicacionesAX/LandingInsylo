@@ -111,33 +111,520 @@
             </p>
         </section>
 
-        <!-- Important Data -->
-        <section class="mb-12">
+        <!-- Insylo Form -->
+        <style>
+            .frm-step { display: none; }
+            .frm-step.active { display: block; }
+            .frm-input {
+                width: 100%;
+                padding: 12px 10px;
+                border: 1px solid #eee;
+                border-radius: 30px;
+                background: #fafafa;
+                font-family: Inter, sans-serif;
+                font-size: 14px;
+                color: #07184c;
+                box-sizing: border-box;
+                transition: box-shadow .2s;
+            }
+            .frm-input:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(7,24,76,.15);
+            }
+            .frm-input::placeholder { color: rgba(12,83,122,.64); }
+            .frm-label {
+                display: block;
+                font-size: 13px;
+                font-weight: 600;
+                color: #07184c;
+                margin-bottom: 6px;
+            }
+            .frm-btn {
+                padding: 12px 36px;
+                border: none;
+                border-radius: 30px;
+                font-family: Inter, sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: opacity .2s;
+            }
+            .frm-btn:hover { opacity: .85; }
+            .frm-btn-primary {
+                background: linear-gradient(to right, #07184c, #0c537a);
+                color: #fff;
+            }
+            .frm-btn-secondary {
+                background: #e5e9ea;
+                color: #07184c;
+            }
+            .frm-progress {
+                height: 8px;
+                border-radius: 8px;
+                background: #fff;
+                border: 1px solid #e0e0e0;
+                overflow: hidden;
+                margin-bottom: 8px;
+            }
+            .frm-progress-fill {
+                height: 100%;
+                border-radius: 8px;
+                background: linear-gradient(to right, #b6dced, #07184c);
+                transition: width .4s ease;
+            }
+            .frm-nav {
+                display: flex;
+                justify-content: flex-end;
+                gap: 12px;
+                margin-top: 24px;
+            }
+            .frm-file-zone {
+                border: 2px dashed #ddd;
+                border-radius: 16px;
+                padding: 32px 20px;
+                text-align: center;
+                cursor: pointer;
+                transition: border-color .2s, background .2s;
+                background: #fafafa;
+            }
+            .frm-file-zone:hover, .frm-file-zone.dragover {
+                border-color: #07184c;
+                background: #f0f4ff;
+            }
+            .frm-file-list { margin-top: 12px; }
+            .frm-file-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 12px;
+                background: #f5f8fa;
+                border-radius: 12px;
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+            .frm-file-item .remove {
+                margin-left: auto;
+                cursor: pointer;
+                color: #ba1a1a;
+                font-weight: 700;
+            }
+            .frm-radio-group { display: flex; gap: 16px; }
+            .frm-radio-group label {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 14px;
+                color: #07184c;
+                cursor: pointer;
+            }
+            .frm-radio-group input[type=radio] {
+                accent-color: #07184c;
+                width: 16px;
+                height: 16px;
+            }
+            .frm-checkbox-group label {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 13px;
+                color: #41474e;
+                cursor: pointer;
+                line-height: 1.5;
+            }
+            .frm-checkbox-group input[type=checkbox] {
+                accent-color: #07184c;
+                margin-top: 2px;
+                flex-shrink: 0;
+            }
+            .frm-error {
+                color: #ba1a1a;
+                font-size: 12px;
+                margin-top: 4px;
+                display: none;
+            }
+            .frm-error.visible { display: block; }
+            .frm-success {
+                text-align: center;
+                padding: 40px 20px;
+            }
+        </style>
+
+        <section class="mb-12" id="form-section">
             <div class="bg-surface-container-low rounded-xl p-8 border-t-4 border-primary">
                 <h2 class="text-2xl font-bold text-on-surface mb-6 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">info</span>
-                    Important Data
+                    <span class="material-symbols-outlined text-primary">assignment</span>
+                    Configuration Form
                 </h2>
                 <p class="text-on-surface-variant mb-6">
-                    Your Insylo sensor is already installed, now we need some data to start configuring.
+                    Your Insylo sensor is already installed. Complete this form to start configuration.
                 </p>
-                <div class="bg-primary-container/20 border border-primary-container/30 p-6 rounded-lg mb-6">
-                    <p class="text-on-surface mb-4">
-                        You must click the following button, which will take you to the form, in this link we will ask for essential information to continue the validation and configuration process of the device.
-                    </p>
-                    <p class="text-tertiary font-bold text-sm mb-4">
-                        Important: Remember that you must complete this form for each Insylo installed.
-                    </p>
-                    <a href="https://share.hsforms.com/2vpJsFnqXSICwb30H_3L-8Anmj2s" target="_blank" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-container transition shadow-lg shadow-primary/30">
-                        <span class="material-symbols-outlined">open_in_new</span>
-                        Click to go to the form
-                    </a>
+                <p class="text-tertiary font-bold text-sm mb-6">
+                    Important: You must complete this form for each Insylo installed.
+                </p>
+
+                <div id="insylo-form">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-medium text-on-surface-variant" id="step-counter">Step 1 of 5</span>
+                    </div>
+                    <div class="frm-progress">
+                        <div class="frm-progress-fill" id="progress-fill" style="width:20%"></div>
+                    </div>
+
+                    <!-- Step 1: Intro -->
+                    <div class="frm-step active" data-step="1">
+                        <div style="text-align:center;padding:20px 0">
+                            <p style="font-size:16px;color:#07184c;margin-bottom:8px">
+                                This form is a key step to finalize the Insylo installation process, as it collects essential information for its proper configuration.
+                            </p>
+                            <p style="font-size:14px;color:#07184c;font-weight:700;margin-bottom:16px">
+                                Important: This form must be filled out for each silo where the device has been installed.
+                            </p>
+                            <p style="font-size:16px;color:#07184c">Let's get started!</p>
+                        </div>
+                        <div class="frm-checkbox-group" style="margin-top:20px">
+                            <label>
+                                <input type="checkbox" id="consent-check">
+                                <span>I agree that my data will be stored and processed for the configuration of the Insylo device.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Farm Data -->
+                    <div class="frm-step" data-step="2">
+                        <h3 style="font-size:20px;font-weight:700;color:#07184c;text-align:center;margin-bottom:4px">Farm Data</h3>
+                        <p style="font-size:14px;color:#07184c;text-align:center;margin-bottom:20px">
+                            In this section we will ask for general information about the Insylo installation location.
+                        </p>
+
+                        <div style="margin-bottom:16px">
+                            <label class="frm-label">Company name <span style="color:#ba1a1a">*</span></label>
+                            <input class="frm-input" name="compania" required placeholder="e.g. San Jorge Farm">
+                            <div class="frm-error" data-for="compania">Required field</div>
+                        </div>
+
+                        <div style="margin-bottom:16px">
+                            <label class="frm-label">Location type</label>
+                            <div class="frm-radio-group">
+                                <label><input type="radio" name="tipoUbicacion" value="Farm"> Farm</label>
+                                <label><input type="radio" name="tipoUbicacion" value="Plant"> Plant</label>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom:16px">
+                            <label class="frm-label">Location name (farm or plant) <span style="color:#ba1a1a">*</span></label>
+                            <input class="frm-input" name="nombreUbicacion" required placeholder="e.g. San Jorge Farm or Itagüí Plant">
+                            <div class="frm-error" data-for="nombreUbicacion">Required field</div>
+                        </div>
+
+                        <div style="margin-bottom:16px">
+                            <label class="frm-label">Sector name or identification <span style="color:#ba1a1a">*</span></label>
+                            <input class="frm-input" name="sector" required placeholder="e.g. G-03, Barn 3 or North Sector">
+                            <div class="frm-error" data-for="sector">Required field</div>
+                        </div>
+
+                        <div style="margin-bottom:16px">
+                            <label class="frm-label">Silo ID number <span style="color:#ba1a1a">*</span></label>
+                            <input class="frm-input" name="siloId" required placeholder="e.g. Silo 403A">
+                            <div class="frm-error" data-for="siloId">Required field</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Images -->
+                    <div class="frm-step" data-step="3">
+                        <h3 style="font-size:20px;font-weight:700;color:#07184c;text-align:center;margin-bottom:4px">Images</h3>
+                        <p style="font-size:14px;color:#07184c;text-align:center;margin-bottom:4px">
+                            Attach the 3 photos you were asked to take in installation step 2.
+                        </p>
+                        <p style="font-size:13px;color:#ba1a1a;font-weight:600;text-align:center;margin-bottom:20px">
+                            This step is essential, without these images the device configuration cannot be done.
+                        </p>
+
+                        <div style="margin-bottom:12px;font-size:13px;color:#41474e;line-height:1.6">
+                            <p><strong>1.</strong> The silo label(s) with specification information.</p>
+                            <p><strong>2.</strong> The Insylo device QR code together with the silo label.</p>
+                            <p><strong>3.</strong> Another image of just the silo label.</p>
+                        </div>
+
+                        <div class="frm-file-zone" id="file-zone">
+                            <span class="material-symbols-outlined" style="font-size:40px;color:#07184c;margin-bottom:8px">cloud_upload</span>
+                            <p style="font-size:14px;color:#07184c;margin-bottom:4px">Drag your photos here or click to browse</p>
+                            <p style="font-size:12px;color:#888">You can select up to 3 images</p>
+                            <input type="file" id="file-input" accept="image/*" multiple style="display:none">
+                        </div>
+                        <div class="frm-file-list" id="file-list"></div>
+                    </div>
+
+                    <!-- Step 4: Measurements -->
+                    <div class="frm-step" data-step="4">
+                        <h3 style="font-size:20px;font-weight:700;color:#07184c;text-align:center;margin-bottom:4px">Measurements</h3>
+                        <p style="font-size:14px;color:#07184c;text-align:center;margin-bottom:4px">
+                            Add the dimensions of the silo where Insylo was installed.
+                        </p>
+                        <p style="font-size:13px;color:#ba1a1a;font-weight:600;text-align:center;margin-bottom:20px">
+                            Measurements must be as accurate as possible.
+                        </p>
+
+                        <p style="font-size:14px;font-weight:700;color:#07184c;margin-bottom:12px">General silo measurements</p>
+
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
+                            <div>
+                                <label class="frm-label">1. Cylinder to ground (cm) <span style="color:#ba1a1a">*</span></label>
+                                <input class="frm-input" name="cilindroSuelo" type="number" required>
+                                <div class="frm-error" data-for="cilindroSuelo">Required field</div>
+                            </div>
+                            <div>
+                                <label class="frm-label">2. Cone to ground (cm) <span style="color:#ba1a1a">*</span></label>
+                                <input class="frm-input" name="conoSuelo" type="number" required>
+                                <div class="frm-error" data-for="conoSuelo">Required field</div>
+                            </div>
+                            <div>
+                                <label class="frm-label">3. Feeder to ground (cm) <span style="color:#ba1a1a">*</span></label>
+                                <input class="frm-input" name="alimentadorSuelo" type="number" required>
+                                <div class="frm-error" data-for="alimentadorSuelo">Required field</div>
+                            </div>
+                            <div>
+                                <label class="frm-label">4. Truncated cone (cm) <span style="color:#ba1a1a">*</span></label>
+                                <input class="frm-input" name="conoTruncado" type="number" required>
+                                <div class="frm-error" data-for="conoTruncado">Required field</div>
+                            </div>
+                            <div>
+                                <label class="frm-label">5. Distance to hole (cm)</label>
+                                <input class="frm-input" name="distanciaOrificio" type="number">
+                            </div>
+                            <div>
+                                <label class="frm-label">6. Cone angle (degrees) <span style="color:#ba1a1a">*</span></label>
+                                <input class="frm-input" name="anguloCono" type="number" required>
+                                <div class="frm-error" data-for="anguloCono">Required field</div>
+                            </div>
+                        </div>
+
+                        <p style="font-size:14px;font-weight:700;color:#07184c;margin-bottom:12px;margin-top:16px">Silo diameter measurements</p>
+
+                        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+                            <div>
+                                <label class="frm-label">A. Distance between legs (cm) <span style="color:#ba1a1a">*</span></label>
+                                <input class="frm-input" name="distanciaPatas" type="number" required>
+                                <div class="frm-error" data-for="distanciaPatas">Required field</div>
+                            </div>
+                            <div>
+                                <label class="frm-label">B. Radius (cm)</label>
+                                <input class="frm-input" name="radio" type="number">
+                            </div>
+                            <div>
+                                <label class="frm-label">C. Number of legs <span style="color:#ba1a1a">*</span></label>
+                                <input class="frm-input" name="numeroPatas" type="number" required>
+                                <div class="frm-error" data-for="numeroPatas">Required field</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Access -->
+                    <div class="frm-step" data-step="5">
+                        <h3 style="font-size:20px;font-weight:700;color:#07184c;text-align:center;margin-bottom:4px">Access</h3>
+                        <p style="font-size:14px;color:#07184c;text-align:center;margin-bottom:4px">
+                            Enter the emails of the people you want to give access to this silo.
+                        </p>
+                        <p style="font-size:13px;color:#07184c;text-align:center;margin-bottom:20px">
+                            You can add up to 10 users.
+                        </p>
+
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                            <div><label class="frm-label">Email 1 <span style="color:#ba1a1a">*</span></label><input class="frm-input" name="correo0" type="email" required placeholder="user@example.com"><div class="frm-error" data-for="correo0">Required field</div></div>
+                            <div><label class="frm-label">Email 2</label><input class="frm-input" name="correo1" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 3</label><input class="frm-input" name="correo2" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 4</label><input class="frm-input" name="correo3" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 5</label><input class="frm-input" name="correo4" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 6</label><input class="frm-input" name="correo5" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 7</label><input class="frm-input" name="correo6" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 8</label><input class="frm-input" name="correo7" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 9</label><input class="frm-input" name="correo8" type="email" placeholder="user@example.com"></div>
+                            <div><label class="frm-label">Email 10</label><input class="frm-input" name="correo9" type="email" placeholder="user@example.com"></div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="frm-nav">
+                        <button class="frm-btn frm-btn-secondary" id="prev-btn" onclick="prevStep()" style="display:none">
+                            <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">arrow_back</span>
+                            Previous
+                        </button>
+                        <button class="frm-btn frm-btn-primary" id="next-btn" onclick="nextStep()">
+                            Next
+                            <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">arrow_forward</span>
+                        </button>
+                        <button class="frm-btn frm-btn-primary" id="submit-btn" onclick="submitForm()" style="display:none">
+                            <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">send</span>
+                            Submit
+                        </button>
+                    </div>
                 </div>
-                <p class="text-on-surface-variant text-sm">
-                    After completing the form, you can return to this page to know the next steps.
-                </p>
+
+                <!-- Success -->
+                <div id="form-success" class="frm-success" style="display:none">
+                    <div class="icon">
+                        <span class="material-symbols-outlined" style="font-size:64px;color:#018184">check_circle</span>
+                    </div>
+                    <h3 style="font-size:24px;font-weight:700;color:#07184c;margin-bottom:8px">We're done!</h3>
+                    <p style="font-size:16px;color:#41474e;margin-bottom:16px">
+                        We will contact you soon to verify the correct installation and operation of the device.
+                    </p>
+                    <p style="font-size:14px;color:#41474e">
+                        To know the next steps, continue on this page.
+                    </p>
+                </div>
             </div>
         </section>
+
+        <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        const uploadedFiles = [];
+
+        function showStep(n) {
+            document.querySelectorAll('.frm-step').forEach(el => el.classList.remove('active'));
+            document.querySelector(`[data-step="${n}"]`).classList.add('active');
+            document.getElementById('step-counter').textContent = `Step ${n} of ${totalSteps}`;
+            document.getElementById('progress-fill').style.width = `${(n / totalSteps) * 100}%`;
+            document.getElementById('prev-btn').style.display = n > 1 ? 'inline-flex' : 'none';
+            document.getElementById('next-btn').style.display = n < totalSteps ? 'inline-flex' : 'none';
+            document.getElementById('submit-btn').style.display = n === totalSteps ? 'inline-flex' : 'none';
+            currentStep = n;
+        }
+
+        function validateStep(n) {
+            const step = document.querySelector(`[data-step="${n}"]`);
+            const required = step.querySelectorAll('[required]');
+            let valid = true;
+            required.forEach(el => {
+                const error = step.querySelector(`[data-for="${el.name}"]`);
+                if (!el.value.trim()) {
+                    valid = false;
+                    if (error) error.classList.add('visible');
+                } else {
+                    if (error) error.classList.remove('visible');
+                }
+            });
+            if (n === 1) {
+                const consent = document.getElementById('consent-check');
+                if (!consent.checked) {
+                    valid = false;
+                    consent.style.outline = '2px solid #ba1a1a';
+                } else {
+                    consent.style.outline = '';
+                }
+            }
+            return valid;
+        }
+
+        window.nextStep = function() {
+            if (!validateStep(currentStep)) return;
+            if (currentStep < totalSteps) showStep(currentStep + 1);
+        };
+
+        window.prevStep = function() {
+            if (currentStep > 1) showStep(currentStep - 1);
+        };
+
+        const fileZone = document.getElementById('file-zone');
+        const fileInput = document.getElementById('file-input');
+        const fileList = document.getElementById('file-list');
+
+        fileZone.addEventListener('click', () => fileInput.click());
+        fileZone.addEventListener('dragover', e => { e.preventDefault(); fileZone.classList.add('dragover'); });
+        fileZone.addEventListener('dragleave', () => fileZone.classList.remove('dragover'));
+        fileZone.addEventListener('drop', e => {
+            e.preventDefault();
+            fileZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+        fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+
+        function handleFiles(files) {
+            for (const f of files) {
+                if (uploadedFiles.length >= 3) break;
+                if (!f.type.startsWith('image/')) continue;
+                uploadedFiles.push(f);
+            }
+            renderFileList();
+        }
+
+        function renderFileList() {
+            fileList.innerHTML = uploadedFiles.map((f, i) =>
+                `<div class="frm-file-item">
+                    <span class="material-symbols-outlined" style="font-size:18px;color:#07184c">image</span>
+                    <span style="flex:1">${f.name}</span>
+                    <span style="color:#888;font-size:12px">${Math.round(f.size / 1024)} KB</span>
+                    <span class="remove" onclick="removeFile(${i})">✕</span>
+                </div>`
+            ).join('');
+        }
+
+        window.removeFile = function(i) {
+            uploadedFiles.splice(i, 1);
+            renderFileList();
+        };
+
+        window.submitForm = async function() {
+            if (!validateStep(currentStep)) return;
+
+            const formData = {};
+
+            document.querySelectorAll('.frm-input').forEach(el => {
+                if (el.value.trim()) formData[el.name] = el.value.trim();
+            });
+
+            const selectedRadio = document.querySelector('input[name="tipoUbicacion"]:checked');
+            if (selectedRadio) formData.tipoUbicacion = selectedRadio.value;
+
+            const correos = [];
+            for (let i = 0; i < 10; i++) {
+                const el = document.querySelector(`input[name="correo${i}"]`);
+                if (el && el.value.trim()) correos.push(el.value.trim());
+            }
+            if (correos.length) formData.correos = correos;
+
+            const fotos = [];
+            for (const f of uploadedFiles) {
+                const b64 = await fileToBase64(f);
+                fotos.push({ name: f.name, size: f.size, type: f.type, data: b64 });
+            }
+            if (fotos.length) formData.fotos = fotos;
+
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            try {
+                const res = await fetch('/api/submit-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                });
+                const result = await res.json();
+                if (result.success) {
+                    document.getElementById('insylo-form').style.display = 'none';
+                    document.getElementById('form-success').style.display = 'block';
+                } else {
+                    alert('Error sending form. Please try again.');
+                    btn.disabled = false;
+                    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">send</span> Submit';
+                }
+            } catch {
+                alert('Connection error. Please try again.');
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">send</span> Submit';
+            }
+        };
+
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+        </script>
 
         <!-- Validation and operation -->
         <section class="mb-12">
